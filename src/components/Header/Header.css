@@ -1,0 +1,103 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--bg-app);
+}
+
+.header-default {
+    height: 68px;
+}
+
+.header-simple {
+    height: 48px;
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 44px;
+}
+
+.header-logo-container svg {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.header-right-side-logged {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.header-right-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding-right: 20px;
+}
+
+.header-username,
+.header-link {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-link:hover {
+    color: var(--brand);
+}
+
+.header-avatar {
+    background-color: var(--surface-1);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 720px) {
+    .header {
+        height: 56px;
+        padding: 12px 16px;
+    }
+
+    .header-logo-container {
+        height: 24px;
+    }
+
+    .header-right-side {
+        display: none;
+    }
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.header-right button {
+    background-color: var(--brand);
+    color: var(--on-brand);
+}
+
+.nav-link {
+    color: var(--text-primary);
+}
+
+.nav-link.active {
+    color: var(--brand);
+}
