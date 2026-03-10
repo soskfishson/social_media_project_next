@@ -1,0 +1,41 @@
+.main-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--surface-1);
+    padding: 1rem;
+}
+
+.main-page-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.main-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+    max-width: 700px;
+}
+
+@media (max-width: 1240px) {
+    .main-page {
+        padding: 0;
+    }
+    .main-page-container {
+        padding: 12px 8px;
+        width: 100%;
+        gap: 16px;
+    }
+}
+
+.scroll-sentinel {
+    min-height: 1px;
+}

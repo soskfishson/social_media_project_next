@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import Logo from '../../assets/logo.svg';
@@ -54,8 +55,8 @@ const BurgerMenu = () => {
                     <>
                         <div className="burger-menu-profile">
                             <Logo />
-                            <img
-                                src={user.profileImage}
+                            <Image
+                                src={user.profileImage || '/assets/default-avatar.png'}
                                 alt={t('a11y.userAvatar', { name: user.username })}
                                 className="burger-profile-avatar"
                             />

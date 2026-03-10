@@ -132,12 +132,16 @@ const authSlice = createSlice({
             state.sessionExpired = false;
             localStorage.removeItem('accessToken');
         },
+        setToken(state, action: PayloadAction<string | null>) {
+            state.accessToken = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
             .addCase(getMeThunk.fulfilled, (state, action: PayloadAction<User>) => {
                 state.user = action.payload;
                 state.isLoading = false;
+                state.sessionExpired = false;
             })
             .addCase(getMeThunk.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.isLoading = false;
@@ -184,5 +188,5 @@ const authSlice = createSlice({
     },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, setToken } = authSlice.actions;
 export default authSlice.reducer;

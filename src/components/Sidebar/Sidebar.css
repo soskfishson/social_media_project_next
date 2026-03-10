@@ -1,0 +1,17 @@
+.sidebar {
+    position: absolute;
+    right: 1%;
+    width: 21%;
+    max-width: 340px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1240px) {
+    .sidebar {
+        display: none;
+    }
+}
