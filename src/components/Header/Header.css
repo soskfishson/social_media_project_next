@@ -61,8 +61,6 @@
 
 .header-avatar {
     background-color: var(--surface-1);
-    width: 24px;
-    height: 24px;
     border-radius: 50%;
     object-fit: cover;
     display: block;

@@ -1,0 +1,32 @@
+.tab-switch {
+    display: inline;
+    background-color: var(--bg-app);
+    width: fit-content;
+    padding: 4px;
+    gap: 4px;
+}
+
+.tab-switch-button {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tab-switch-button:hover {
+    color: var(--text-primary);
+    background-color: var(--surface-1);
+}
+
+.tab-switch-button.active {
+    background-color: var(--brand);
+    color: var(--on-brand);
+}
+
+.tab-switch-button.active:hover {
+    background-color: var(--brand);
+}

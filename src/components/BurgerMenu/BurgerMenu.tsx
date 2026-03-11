@@ -56,6 +56,8 @@ const BurgerMenu = () => {
                         <div className="burger-menu-profile">
                             <Logo />
                             <Image
+                                width={24}
+                                height={24}
                                 src={user.profileImage || '/assets/default-avatar.png'}
                                 alt={t('a11y.userAvatar', { name: user.username })}
                                 className="burger-profile-avatar"

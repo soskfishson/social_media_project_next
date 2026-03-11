@@ -32,6 +32,8 @@ const HeaderControls = ({ variant }: HeaderControlsProps) => {
                     aria-label={t('a11y.userAvatar', { name: user.username })}
                 >
                     <Image
+                        width={24}
+                        height={24}
                         className="header-avatar"
                         src={user.profileImage || '/assets/default-avatar.png'}
                         alt={t('a11y.userAvatar', { name: user.username })}

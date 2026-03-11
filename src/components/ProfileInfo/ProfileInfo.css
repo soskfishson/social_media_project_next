@@ -1,0 +1,202 @@
+.profile-info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 32px 0;
+}
+
+.profile-edit-section {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    max-width: 575px;
+}
+
+.profile-photo-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-default);
+}
+
+.profile-photo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-name {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.change-photo-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+}
+
+.change-photo-btn:hover {
+    color: var(--brand);
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.profile-preferences-section {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    max-width: 575px;
+}
+
+.preference-item {
+    margin-bottom: 32px;
+}
+
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.theme-toggle-checkbox {
+    display: none;
+}
+
+.theme-toggle-switch {
+    position: relative;
+    width: 48px;
+    height: 28px;
+    background-color: var(--gray-soft-100);
+    border-radius: 16px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.theme-toggle-switch.active {
+    background-color: var(--gray-strong-800);
+}
+
+.theme-toggle-slider {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--white);
+    border-radius: 50%;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-switch.active .theme-toggle-slider {
+    transform: translateX(20px);
+    background-color: var(--brand);
+}
+
+.theme-toggle-label {
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.save-button-container {
+    height: 44px;
+    width: 50%;
+}
+
+.logout-button-container {
+    height: 44px;
+    width: 30%;
+}
+
+.theme-toggle-container:hover .theme-toggle-switch {
+    opacity: 0.9;
+}
+
+.actions-title {
+    margin: 24px 0;
+}
+
+.textarea-wrapper {
+    height: 182px;
+}
+
+.textarea-wrapper .input-wrapper {
+    height: 100%;
+}
+
+.textarea-wrapper .input-container {
+    height: 100% !important;
+}
+
+@media (max-width: 720px) {
+    .profile-info-container {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 32px;
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .profile-edit-section {
+        width: 100%;
+    }
+
+    .profile-preferences-section {
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+
+    .profile-photo {
+        width: 64px;
+        height: 64px;
+    }
+
+    .profile-name {
+        font-size: 16px;
+    }
+
+    .logout-button-container {
+        height: auto;
+    }
+
+    .save-button-container {
+        height: auto;
+    }
+}
