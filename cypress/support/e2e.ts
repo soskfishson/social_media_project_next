@@ -12,6 +12,16 @@ Cypress.on('uncaught:exception', (err) => {
     }
 });
 
+beforeEach(() => {
+    if (window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+            registrations.forEach((registration) => {
+                registration.unregister();
+            });
+        });
+    }
+});
+
 afterEach(() => {
     const testTitle = Cypress.currentTest.titlePath.join('--');
     const filename = testTitle.replace(/[^a-zA-Z0-9]/g, '_');

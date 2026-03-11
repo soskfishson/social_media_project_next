@@ -7,7 +7,7 @@ Cypress.Commands.add('loginViaLocalStorage', (user = {}) => {
         firstName: 'Test',
         secondName: 'User',
         email: 'test@test.com',
-        profileImage: 'https://via.placeholder.com/40',
+        profileImage: '/assets/user-helena.png',
         description: 'Hello from E2E',
         ...user,
     };
@@ -21,7 +21,7 @@ Cypress.Commands.add('logout', () => {
 });
 
 Cypress.Commands.add('interceptAuth', () => {
-    cy.intercept('POST', '/api/login', {
+    cy.intercept('POST', '**/api/login', {
         statusCode: 200,
         body: {
             token: 'mock-e2e-token',
@@ -31,17 +31,17 @@ Cypress.Commands.add('interceptAuth', () => {
                 firstName: 'Test',
                 secondName: 'User',
                 email: 'test@test.com',
-                profileImage: 'https://via.placeholder.com/40',
+                profileImage: '/assets/user-helena.png',
             },
         },
     }).as('login');
 
-    cy.intercept('POST', '/api/signup', {
+    cy.intercept('POST', '**/api/signup', {
         statusCode: 201,
         body: { message: 'User created' },
     }).as('signup');
 
-    cy.intercept('GET', '/api/me', {
+    cy.intercept('GET', '**/api/me', {
         statusCode: 200,
         body: {
             id: 1,
@@ -49,7 +49,7 @@ Cypress.Commands.add('interceptAuth', () => {
             firstName: 'Test',
             secondName: 'User',
             email: 'test@test.com',
-            profileImage: 'https://via.placeholder.com/40',
+            profileImage: '/assets/user-helena.png',
             description: 'Hello from E2E',
         },
     }).as('getMe');
@@ -86,17 +86,17 @@ Cypress.Commands.add('interceptPosts', (posts = []) => {
                   },
               ];
 
-    cy.intercept('POST', '/api/graphql', {
+    cy.intercept('POST', '**/api/graphql', {
         statusCode: 200,
         body: { data: { allPosts: defaultPosts } },
     }).as('getPosts');
 
-    cy.intercept('GET', '/api/getSuggested', { statusCode: 200, body: [] }).as('getSuggested');
-    cy.intercept('GET', '/api/groups', { statusCode: 200, body: [] }).as('getGroups');
+    cy.intercept('GET', '**/api/getSuggested', { statusCode: 200, body: [] }).as('getSuggested');
+    cy.intercept('GET', '**/api/groups', { statusCode: 200, body: [] }).as('getGroups');
 });
 
 Cypress.Commands.add('interceptProfile', () => {
-    cy.intercept('PUT', '/api/profile', (req) => {
+    cy.intercept('PUT', '**/api/profile', (req) => {
         req.reply({
             statusCode: 200,
             body: {
@@ -106,7 +106,7 @@ Cypress.Commands.add('interceptProfile', () => {
                 firstName: 'Test',
                 secondName: 'User',
                 description: req.body.description || '',
-                profileImage: 'https://via.placeholder.com/40',
+                profileImage: '/assets/user-helena.png',
             },
         });
     }).as('updateProfile');

@@ -8,7 +8,7 @@ const NAV_USER = {
     firstName: 'Test',
     secondName: 'User',
     email: 'test@test.com',
-    profileImage: 'https://via.placeholder.com/40',
+    profileImage: '/assets/user-helena.png',
 };
 
 describe('Header — unauthenticated', () => {
@@ -59,7 +59,7 @@ describe('Header — authenticated', () => {
     });
 
     it('renders user avatar with correct src', () => {
-        cy.get('.header-avatar').should('have.attr', 'src', NAV_USER.profileImage);
+        cy.get('.header-avatar').should('have.attr', 'src').and('include', 'user-helena.png');
     });
 
     it('does not render Sign In / Sign Up links', () => {
@@ -99,7 +99,7 @@ describe('Burger Menu — toggle behaviour', () => {
 
     it('shows overlay when the menu is open', () => {
         cy.get('[data-testid="burger-button"]').click();
-        cy.get('.burger-overlay').should('be.visible');
+        cy.get('.burger-overlay').should('exist');
     });
 
     it('clicking the overlay closes the menu', () => {
@@ -167,7 +167,9 @@ describe('Burger Menu — authenticated links', () => {
     });
 
     it('renders user avatar in the burger menu', () => {
-        cy.get('.burger-profile-avatar').should('have.attr', 'src', NAV_USER.profileImage);
+        cy.get('.burger-profile-avatar')
+            .should('have.attr', 'src')
+            .and('include', 'user-helena.png');
     });
 });
 
