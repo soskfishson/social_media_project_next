@@ -1,7 +1,7 @@
-import { renderWithProviders, screen } from '../tests/test-utils';
+import { renderWithProviders, screen } from '@/tests/test-utils';
 import { useRouter } from 'next/navigation';
 import ProtectedRoute from './ProtectedRoute';
-import type { User } from '../interfaces/interfaces';
+import type { User } from '@/interfaces/interfaces';
 
 const mockReplace = jest.fn();
 

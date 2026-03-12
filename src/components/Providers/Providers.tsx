@@ -32,7 +32,7 @@ export default function Providers({ children }: { children: ReactNode }) {
             try {
                 const { startMockingSocial } =
                     await import('@sidekick-monorepo/internship-backend');
-                await startMockingSocial('');
+                await startMockingSocial('.');
                 setMockingReady(true);
             } catch (error) {
                 console.error('Failed to start MSW:', error);

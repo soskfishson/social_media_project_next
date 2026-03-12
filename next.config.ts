@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
         optimizeCss: true,
     },
 
+    output: 'export',
+    basePath: '/social_media_project_next',
+    trailingSlash: true,
+
     images: {
         remotePatterns: [{ protocol: 'https', hostname: 'via.placeholder.com' }],
         formats: ['image/avif', 'image/webp'],

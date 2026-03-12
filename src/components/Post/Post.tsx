@@ -29,6 +29,7 @@ import useToast from '@/hooks/useToast';
 import useTimeAgo from '@/hooks/useTimeAgo';
 import { useTranslation } from 'react-i18next';
 import CommentItem from '../CommentItem/CommentItem';
+import { getAssetUrl } from '@/utils/getAssetUrl';
 
 const StyledCard = styled(Card)(() => ({
     display: 'flex',
@@ -199,7 +200,7 @@ export const PostComponent = ({ post }: PostProps) => {
                     <CircularProgress size={48} />
                 ) : (
                     <Avatar
-                        src={author?.profileImage || '/assets/default-avatar.png'}
+                        src={getAssetUrl(author?.profileImage || '/assets/default-avatar.png')}
                         sx={{ width: 48, height: 48 }}
                         alt={t('a11y.userAvatar', { name: authorName })}
                     />
@@ -223,7 +224,7 @@ export const PostComponent = ({ post }: PostProps) => {
                 {post.image && (
                     <CardMedia
                         component="img"
-                        image={post.image}
+                        image={getAssetUrl(post.image)}
                         alt={t('a11y.postImage')}
                         sx={{ width: '100%', height: 'auto', borderRadius: '4px' }}
                     />

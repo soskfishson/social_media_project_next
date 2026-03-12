@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "prepare": "husky",
@@ -24,7 +24,7 @@
     "@mui/material": "^7.3.8",
     "@mui/material-nextjs": "^7.3.8",
     "@reduxjs/toolkit": "^2.11.2",
-    "@sidekick-monorepo/internship-backend": "file:../../temp_pkg/backend.tgz",
+    "@sidekick-monorepo/internship-backend": "file:./temp_pkg/backend.tgz",
     "@tanstack/react-query": "^5.90.21",
     "axios": "^1.13.5",
     "formik": "^2.4.9",
