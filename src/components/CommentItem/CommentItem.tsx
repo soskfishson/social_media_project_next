@@ -12,7 +12,7 @@ export const CommentItem = ({ comment }: CommentItemProps) => {
     const { data: author, isLoading } = useUserQuery(comment.authorId);
 
     return (
-        <Box sx={{ padding: '8px 0' }}>
+        <Box sx={{ padding: '8px 0', mt: '0 !important' }}>
             {isLoading ? (
                 <Stack spacing={1}>
                     <Skeleton variant="text" width="30%" />

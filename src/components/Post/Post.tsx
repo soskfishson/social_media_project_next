@@ -4,16 +4,17 @@ import { type SyntheticEvent, useReducer, useState, useRef, memo } from 'react';
 import {
     Avatar,
     Box,
-    Button,
     Card,
     CardActions,
     CardMedia,
     CircularProgress,
     Collapse,
     Stack,
-    TextField,
     Typography,
+    Button as MUIButton,
 } from '@mui/material';
+import Input from '../Input/Input';
+import { InputType, ValidationState, ButtonType } from '@/interfaces/interfaces';
 import { styled } from '@mui/material/styles';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -30,6 +31,8 @@ import useTimeAgo from '@/hooks/useTimeAgo';
 import { useTranslation } from 'react-i18next';
 import CommentItem from '../CommentItem/CommentItem';
 import { getAssetUrl } from '@/utils/getAssetUrl';
+import Button from '../Button/Button';
+import PencilIcon from '@/assets/PencilIcon.svg';
 
 const StyledCard = styled(Card)(() => ({
     display: 'flex',
@@ -65,13 +68,14 @@ const PostCaption = styled(Typography)(({ theme }) => ({
     },
 }));
 
-const ActionButton = styled(Button, {
+const ActionButton = styled(MUIButton, {
     shouldForwardProp: (prop) => prop !== 'isLiked',
 })<{ isLiked?: boolean }>(({ theme, isLiked }) => ({
     textTransform: 'none',
     fontFamily: "'Inter', sans-serif",
     fontSize: '1rem',
     padding: 0,
+    gap: 8,
     minWidth: 'auto',
     color: isLiked ? 'var(--negative-main)' : 'var(--text-primary)',
     transition: 'color 0.2s ease, transform 0.15s ease',
@@ -297,59 +301,56 @@ export const PostComponent = ({ post }: PostProps) => {
 
             <Collapse in={commentsShown && isLoggedIn} id={`comments-${post.id}`}>
                 <Box
-                    sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: '16px' }}
+                    sx={{ mt: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}
                     role="region"
                     aria-label="Comments"
                 >
                     {commentsLoading ? (
                         <CircularProgress size={20} />
                     ) : (
-                        <Stack spacing={2}>
-                            {Array.isArray(comments) &&
-                                comments.map((comment) => (
-                                    <CommentItem key={comment.id} comment={comment} />
-                                ))}
-
+                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                {Array.isArray(comments) &&
+                                    comments.map((comment) => (
+                                        <CommentItem key={comment.id} comment={comment} />
+                                    ))}
+                            </Box>
                             <Box
                                 component="form"
                                 onSubmit={handleCommentSubmit}
-                                sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '12px',
+                                    mt: '16px',
+                                }}
                                 aria-label="Add a comment"
                             >
-                                <TextField
-                                    multiline
-                                    rows={3}
+                                <Input
+                                    label="Add a comment"
+                                    icon={<PencilIcon />}
+                                    type={InputType.TEXTAREA}
                                     placeholder={t('posts.writeComment')}
                                     value={formState.text}
-                                    onChange={(e) =>
+                                    onChange={(val) =>
                                         dispatch({
                                             type: FormActionType.SET_TEXT,
-                                            payload: e.target.value,
+                                            payload: val,
                                         })
                                     }
                                     disabled={formState.isSubmitting}
-                                    fullWidth
-                                    data-testid="comment-input"
-                                    inputProps={{
-                                        'aria-label': 'Write your comment',
-                                        maxLength: 1000,
-                                    }}
+                                    maxLength={1000}
+                                    validationState={ValidationState.IDLE}
                                 />
-                                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        width: '30%',
+                                    }}
+                                >
                                     <Button
-                                        type="submit"
-                                        variant="contained"
+                                        type={ButtonType.SUBMIT}
                                         disabled={formState.isSubmitting || !formState.text.trim()}
-                                        sx={{
-                                            textTransform: 'none',
-                                            transition: 'transform 0.15s ease',
-                                            '&:not(:disabled):hover': {
-                                                transform: 'translateY(-1px)',
-                                            },
-                                            '&:not(:disabled):active': {
-                                                transform: 'translateY(0)',
-                                            },
-                                        }}
                                         data-testid="comment-submit"
                                     >
                                         {formState.isSubmitting
@@ -358,7 +359,7 @@ export const PostComponent = ({ post }: PostProps) => {
                                     </Button>
                                 </Box>
                             </Box>
-                        </Stack>
+                        </Box>
                     )}
                 </Box>
             </Collapse>
