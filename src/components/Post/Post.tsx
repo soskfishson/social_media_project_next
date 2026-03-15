@@ -1,3 +1,5 @@
+'use client';
+
 import { type SyntheticEvent, useReducer, useState, useRef, memo } from 'react';
 import {
     Avatar,
