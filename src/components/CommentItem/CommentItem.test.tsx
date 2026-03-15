@@ -1,4 +1,4 @@
-import { renderWithProviders, screen, waitFor } from '../../tests/test-utils';
+import { renderWithProviders, screen, waitFor } from '@/tests/test-utils';
 import CommentItem from './CommentItem';
 
 const mockComment = {

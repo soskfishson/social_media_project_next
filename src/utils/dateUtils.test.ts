@@ -6,12 +6,24 @@ const hoursAgo = (n: number) => minutesAgo(n * 60);
 const daysAgo = (n: number) => hoursAgo(n * 24);
 
 const mockT = (key: string, params?: Record<string, string | number>) => {
-    if (key === 'time.justNow') return 'Just now';
-    if (key === 'time.minAgo') return `${params?.count} min ago`;
-    if (key === 'time.hourAgo') return '1 hour ago';
-    if (key === 'time.hoursAgo') return `${params?.count} hours ago`;
-    if (key === 'time.dayAgo') return '1 day ago';
-    if (key === 'time.daysAgo') return `${params?.count} days ago`;
+    if (key === 'time.justNow') {
+        return 'Just now';
+    }
+    if (key === 'time.minAgo') {
+        return `${params?.count} min ago`;
+    }
+    if (key === 'time.hourAgo') {
+        return '1 hour ago';
+    }
+    if (key === 'time.hoursAgo') {
+        return `${params?.count} hours ago`;
+    }
+    if (key === 'time.dayAgo') {
+        return '1 day ago';
+    }
+    if (key === 'time.daysAgo') {
+        return `${params?.count} days ago`;
+    }
     return key;
 };
 

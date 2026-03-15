@@ -1,7 +1,7 @@
-import { renderWithProviders, screen, fireEvent, waitFor } from '../../tests/test-utils';
+import { renderWithProviders, screen, fireEvent, waitFor } from '@/tests/test-utils';
 import Post from './Post';
-import { apiClient } from '../../api/api';
-import { ToastType, type Post as PostType, type User } from '../../interfaces/interfaces';
+import { apiClient } from '@/api/api';
+import { ToastType, type Post as PostType, type User } from '@/interfaces/interfaces';
 
 beforeEach(() => {
     jest.clearAllMocks();

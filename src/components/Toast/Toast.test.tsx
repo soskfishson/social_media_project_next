@@ -2,8 +2,8 @@ import { screen, fireEvent, act, waitFor } from '@testing-library/react';
 import { render } from '@testing-library/react';
 import { useEffect } from 'react';
 import { ToastType } from '@/interfaces/interfaces';
-import useToast from '../../hooks/useToast';
-import ToastProvider from '../../context/ToastContext/ToastProvider';
+import useToast from '@/hooks/useToast';
+import ToastProvider from '@/context/ToastContext/ToastProvider';
 
 const renderWithToastProvider = (ui: React.ReactElement) => {
     render(<ToastProvider>{ui}</ToastProvider>);

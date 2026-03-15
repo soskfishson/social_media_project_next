@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
-import Logo from '../../assets/logo.svg';
-import useAuth from '../../hooks/useAuth';
+import Logo from '@/assets/logo.svg';
+import useAuth from '@/hooks/useAuth';
 import { useTranslation } from 'react-i18next';
 import Button from '../Button/Button';
 import { ButtonType } from '@/interfaces/interfaces';

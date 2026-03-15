@@ -140,6 +140,28 @@ const ru = {
         selectLanguage: 'Выбрать язык',
     },
 
+    stats: {
+        totalLikes: 'Всего лайков поставлено',
+        totalComments: 'Всего комментариев',
+        totalPosts: 'Всего постов',
+        monthOverMonth: '{{change}}% за месяц',
+        likes: 'Лайки',
+        comments: 'Комментарии',
+        likesChartTitle: 'Лайки за день (последние 8 дней)',
+        commentsChartTitle: 'Комментарии по месяцам',
+        tableView: 'Таблица',
+        chartView: 'График',
+        toggleChartView: 'Переключить на график',
+        noLikesYet: 'Пока нет лайков',
+        noCommentsYet: 'Пока нет комментариев',
+        sampleData: 'Примерные данные — активности нет',
+        colPost: 'Пост',
+        colPostId: 'ID поста',
+        colDay: 'День',
+        colDate: 'Дата',
+        colComment: 'Комментарий',
+    },
+
     time: {
         justNow: 'Только что',
         minAgo: '{{count}} мин. назад',

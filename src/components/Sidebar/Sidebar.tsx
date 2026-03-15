@@ -14,7 +14,9 @@ export default function Sidebar() {
     const [data, setData] = useState({ users: [], groups: [], loading: true });
 
     useEffect(() => {
-        if (!isLoggedIn) return;
+        if (!isLoggedIn) {
+            return;
+        }
 
         const fetchData = async () => {
             const token = localStorage.getItem('accessToken');
@@ -56,7 +58,9 @@ export default function Sidebar() {
         fetchData();
     }, [isLoggedIn]);
 
-    if (!isLoggedIn) return null;
+    if (!isLoggedIn) {
+        return null;
+    }
 
     return (
         <aside className="sidebar">

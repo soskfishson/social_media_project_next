@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import TabSwitch from '@/components/TabSwitch/TabSwitch';
 import ProfileInfo from '@/components/ProfileInfo/ProfileInfo';
+import ProfileStatisticsClient from '@/components/ProfileStatistics/ProfileStatisticsClient';
 
 const ProfilePageClient = () => {
     const [currentTab, setCurrentTab] = useState('profile');
@@ -20,7 +21,7 @@ const ProfilePageClient = () => {
 
             {currentTab === 'profile' && <ProfileInfo />}
 
-            {currentTab === 'statistics' && <div>{t('profile.statistics')}</div>}
+            {currentTab === 'statistics' && <ProfileStatisticsClient />}
         </>
     );
 };

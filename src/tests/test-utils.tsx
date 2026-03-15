@@ -99,7 +99,6 @@ function renderWithProviders(
                         <AuthContext.Provider value={finalAuthValue}>
                             <ToastContext.Provider value={finalToastValue}>
                                 <ThemeContext.Provider value={finalThemeValue}>
-                                    {/* No MemoryRouter — next/navigation is mocked globally */}
                                     {children}
                                 </ThemeContext.Provider>
                             </ToastContext.Provider>

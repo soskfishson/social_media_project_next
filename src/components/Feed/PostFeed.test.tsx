@@ -1,6 +1,6 @@
-import { renderWithProviders, screen, waitFor } from '../../tests/test-utils';
+import { renderWithProviders, screen, waitFor } from '@/tests/test-utils';
 import PostFeed from './PostFeed';
-import { fetchPostsGraphQL as mockFetch } from '../../api/graphql';
+import { fetchPostsGraphQL as mockFetch } from '@/api/graphql';
 
 const mockPosts = [
     {

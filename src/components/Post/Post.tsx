@@ -176,7 +176,9 @@ export const PostComponent = ({ post }: PostProps) => {
 
     const handleCommentSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
-        if (!formState.text.trim()) return;
+        if (!formState.text.trim()) {
+            return;
+        }
 
         dispatch({ type: FormActionType.SUBMIT_START });
         addCommentMutation.mutate(

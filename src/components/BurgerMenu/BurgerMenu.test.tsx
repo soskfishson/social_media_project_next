@@ -1,6 +1,6 @@
-import { renderWithProviders, screen, fireEvent } from '../../tests/test-utils';
+import { renderWithProviders, screen, fireEvent } from '@/tests/test-utils';
 import BurgerMenu from './BurgerMenu';
-import type { User } from '../../interfaces/interfaces';
+import type { User } from '@/interfaces/interfaces';
 
 const mockAuthUser: User = {
     id: 1,

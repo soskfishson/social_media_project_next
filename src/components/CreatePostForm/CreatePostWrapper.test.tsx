@@ -1,6 +1,6 @@
-import { renderWithProviders, screen } from '../../tests/test-utils';
+import { renderWithProviders, screen } from '@/tests/test-utils';
 import CreatePostWrapper from './CreatePostWrapper';
-import type { User } from '../../interfaces/interfaces';
+import type { User } from '@/interfaces/interfaces';
 
 const mockUser: User = { id: 1, username: 'testuser', profileImage: 'avatar.jpg' } as User;
 

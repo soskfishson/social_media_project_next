@@ -1,7 +1,7 @@
-import { renderWithProviders, screen, fireEvent, waitFor } from '../../tests/test-utils';
+import { renderWithProviders, screen, fireEvent, waitFor } from '@/tests/test-utils';
 import ProfileInfo from './ProfileInfo';
-import { ThemeTypes } from '../../interfaces/interfaces';
-import type { User } from '../../interfaces/interfaces';
+import { ThemeTypes } from '@/interfaces/interfaces';
+import type { User } from '@/interfaces/interfaces';
 
 const mockUser: User = {
     id: 1,

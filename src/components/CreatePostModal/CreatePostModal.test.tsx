@@ -1,6 +1,6 @@
-import { renderWithProviders, screen, fireEvent, waitFor } from '../../tests/test-utils';
+import { renderWithProviders, screen, fireEvent, waitFor } from '@/tests/test-utils';
 import CreatePostModal from './CreatePostModal';
-import { ToastType } from '../../interfaces/interfaces';
+import { ToastType } from '@/interfaces/interfaces';
 
 const mockOnClose = jest.fn();
 

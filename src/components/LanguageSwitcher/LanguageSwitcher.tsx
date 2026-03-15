@@ -20,7 +20,9 @@ const LanguageSwitcher = () => {
     const close = useCallback(() => setIsOpen(false), []);
 
     useEffect(() => {
-        if (!isOpen) return;
+        if (!isOpen) {
+            return;
+        }
 
         const handleClick = (e: MouseEvent) => {
             if (containerRef.current && !containerRef.current.contains(e.target as Node)) {

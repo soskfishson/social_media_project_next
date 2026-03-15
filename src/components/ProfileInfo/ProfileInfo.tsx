@@ -120,8 +120,12 @@ const ProfileInfo = () => {
     const [formState, dispatch] = useReducer(reducer, initialState);
 
     const getFieldState = (field: keyof typeof formState.errors, value: string) => {
-        if (formState.errors[field]) return ValidationState.INVALID;
-        if (value.trim().length > 0) return ValidationState.VALID;
+        if (formState.errors[field]) {
+            return ValidationState.INVALID;
+        }
+        if (value.trim().length > 0) {
+            return ValidationState.VALID;
+        }
         return ValidationState.IDLE;
     };
 

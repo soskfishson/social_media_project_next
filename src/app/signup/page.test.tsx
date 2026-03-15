@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
 import SignUpPage from './page';
-import { renderWithProviders, screen, fireEvent, waitFor } from '../../tests/test-utils';
-import { ToastType } from '../../interfaces/interfaces';
+import { renderWithProviders, screen, fireEvent, waitFor } from '@/tests/test-utils';
+import { ToastType } from '@/interfaces/interfaces';
 
 const mockPush = jest.fn();
 

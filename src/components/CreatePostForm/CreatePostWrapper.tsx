@@ -6,7 +6,9 @@ import CreatePostForm from './CreatePostForm';
 export default function CreatePostWrapper() {
     const { isLoggedIn, user } = useAuth();
 
-    if (!isLoggedIn || !user) return null;
+    if (!isLoggedIn || !user) {
+        return null;
+    }
 
     return <CreatePostForm />;
 }

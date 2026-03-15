@@ -140,6 +140,28 @@ const en = {
         selectLanguage: 'Select language',
     },
 
+    stats: {
+        totalLikes: 'Total likes given',
+        totalComments: 'Total comments',
+        totalPosts: 'Total posts',
+        monthOverMonth: '{{change}}% month over month',
+        likes: 'Likes',
+        comments: 'Comments',
+        likesChartTitle: 'Likes per day (last 8 days)',
+        commentsChartTitle: 'Comments per month',
+        tableView: 'Table view',
+        chartView: 'Chart view',
+        toggleChartView: 'Toggle chart view',
+        noLikesYet: 'No likes yet',
+        noCommentsYet: 'No comments yet',
+        sampleData: 'Sample data — no activity yet',
+        colPost: 'Post',
+        colPostId: 'Post ID',
+        colDay: 'Day',
+        colDate: 'Date',
+        colComment: 'Comment',
+    },
+
     time: {
         justNow: 'Just now',
         minAgo: '{{count}} min ago',
