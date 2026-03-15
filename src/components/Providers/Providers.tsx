@@ -33,7 +33,7 @@ export default function Providers({ children }: ProvidersProps) {
 
     useEffect(() => {
         import('@sidekick-monorepo/internship-backend')
-            .then(({ startMockingSocial }) => startMockingSocial('social_media_network_next'))
+            .then(({ startMockingSocial }) => startMockingSocial(''))
             .catch(console.error);
     }, []);
 

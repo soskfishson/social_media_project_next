@@ -21,7 +21,27 @@ const nextConfig: NextConfig = {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 issuer: (fileLoaderRule as any).issuer,
                 resourceQuery: { not: [...(fileLoaderRule?.resourceQuery?.not ?? []), /url/] },
-                use: ['@svgr/webpack'],
+                use: [
+                    {
+                        loader: '@svgr/webpack',
+                        options: {
+                            svgo: true,
+                            svgoConfig: {
+                                plugins: [
+                                    {
+                                        name: 'preset-default',
+                                        params: {
+                                            overrides: {
+                                                removeViewBox: false,
+                                                cleanupIds: false,
+                                            },
+                                        },
+                                    },
+                                ],
+                            },
+                        },
+                    },
+                ],
             },
         );
 

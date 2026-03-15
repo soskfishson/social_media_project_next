@@ -1,0 +1,234 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.input-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.input-label-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.input-label-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.input-label-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.input-label-icon svg path {
+    fill: var(--text-primary);
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 16px;
+    padding-right: 48px;
+    background-color: var(--input-bg);
+    border: 2px solid var(--surface-3);
+    font-size: 14px;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input-textarea {
+    height: 100%;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.input-field::placeholder {
+    color: var(--text-secondary);
+}
+
+.input-field:focus {
+    border-color: var(--primary-main);
+}
+
+.input-field:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--input-bg);
+}
+
+.input-container.input-valid .input-field {
+    border-color: var(--brand);
+}
+
+.input-container.input-invalid .input-field {
+    border-color: var(--negative-main);
+}
+
+.input-icons {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-check-icon {
+    color: var(--brand);
+    font-size: 18px;
+}
+
+.input-password-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-password-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.input-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.input-message-icon {
+    display: flex;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+}
+
+.input-message-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.input-message-success {
+    color: var(--brand);
+}
+
+.input-message-error {
+    color: var(--negative-main);
+}
+
+.input-message-info {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.input-message-info svg {
+    width: 16px;
+    height: 16px;
+}
+
+.input-char-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.input-char-count-icon {
+    display: flex;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+}
+
+.input-char-count-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.input-char-count-error {
+    color: var(--negative-main);
+}
+
+.file-upload-area {
+    display: block;
+    padding: 16px 24px 16px 32px;
+    border: 2px dashed var(--border-default);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.file-upload-area:hover:not(.file-upload-disabled) {
+    border-color: var(--brand);
+}
+
+.file-upload-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.file-upload-input {
+    display: none;
+}
+
+.file-upload-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+}
+
+.file-upload-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--text-primary);
+}
+
+.file-upload-icon path {
+    fill: currentColor;
+}
+
+.file-upload-text-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.file-upload-text {
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.file-upload-hint {
+    font-size: 16px;
+    color: var(--text-secondary);
+}
