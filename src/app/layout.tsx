@@ -49,7 +49,7 @@ export const metadata: Metadata = {
             'Sidekick is a modern social media platform where you can share posts, connect with people, and build communities.',
         images: [
             {
-                url: '/og-image.png',
+                url: `${BASE_URL}/og-image.png`,
                 width: 200,
                 height: 200,
                 alt: 'Sidekick Social Media Platform',
@@ -60,11 +60,11 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Sidekick — Social Media Platform',
         description: 'Share posts, connect with people, and build communities on Sidekick.',
-        images: ['/og-image.png'],
+        images: [`${BASE_URL}/og-image.png`],
         creator: '@sidekick',
     },
     icons: {
-        icon: '/favicon.ico',
+        icon: `${BASE_URL}/favicon.ico`,
     },
     category: 'social media',
 };
