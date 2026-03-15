@@ -5,11 +5,11 @@ import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import useAuth from '../../hooks/useAuth';
 import { useTranslation } from 'react-i18next';
 
-interface HeaderRightSideProps {
+interface HeaderControlsProps {
     variant?: 'default' | 'simple';
 }
 
-const HeaderRightSide = ({ variant }: HeaderRightSideProps) => {
+const HeaderControls = ({ variant }: HeaderControlsProps) => {
     const { isLoggedIn, user } = useAuth();
     const { t } = useTranslation();
 
@@ -56,4 +56,4 @@ const HeaderRightSide = ({ variant }: HeaderRightSideProps) => {
     );
 };
 
-export default HeaderRightSide;
+export default HeaderControls;

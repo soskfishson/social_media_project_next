@@ -1,6 +1,6 @@
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import HeaderLogo from './HeaderLogo';
-import HeaderRightSide from './HeaderRightSide';
+import HeaderControls from './HeaderControls';
 import './Header.css';
 
 interface HeaderProps {
@@ -11,7 +11,7 @@ const Header = ({ variant = 'default' }: HeaderProps) => {
     return (
         <header className={`header header-${variant}`} role="banner">
             <HeaderLogo />
-            <HeaderRightSide variant={variant} />
+            <HeaderControls variant={variant} />
             <BurgerMenu />
         </header>
     );
