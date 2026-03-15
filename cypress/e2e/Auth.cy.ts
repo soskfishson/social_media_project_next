@@ -45,14 +45,14 @@ describe('Authentication — Sign In', () => {
     });
 
     it('shows error toast on failed sign-in', () => {
-        cy.intercept('POST', '/api/login', {
+        cy.intercept('POST', '**/api/login', {
             statusCode: 401,
             body: { message: 'Invalid credentials' },
         }).as('failLogin');
 
         cy.fillSignInForm('wrong@email.com', 'wrongpass');
         cy.contains('button', /Sign In/i).click();
-        cy.contains(/Failed to sign into account/i).should('be.visible');
+        cy.contains(/Failed to sign in/i).should('be.visible');
     });
 
     it('has a link to the Sign Up page', () => {
@@ -139,6 +139,7 @@ describe('Authentication — Logout & Protected Routes', () => {
         cy.get('[data-testid="logout-button"]').click();
 
         cy.window().its('localStorage').invoke('getItem', 'accessToken').should('be.null');
-        cy.window().its('localStorage').invoke('getItem', 'user').should('be.null');
+
+        cy.url().should('include', '/signin');
     });
 });

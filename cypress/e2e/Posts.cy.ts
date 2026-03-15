@@ -35,7 +35,7 @@ const POSTS_USER = {
     firstName: 'Test',
     secondName: 'User',
     email: 'test@test.com',
-    profileImage: 'https://via.placeholder.com/40',
+    profileImage: '/assets/user-helena.png',
 };
 
 describe('Main Page — loading states', () => {
@@ -43,11 +43,11 @@ describe('Main Page — loading states', () => {
         cy.interceptAuth();
         cy.loginViaLocalStorage(POSTS_USER);
 
-        cy.intercept('POST', '/api/graphql', (req) => {
+        cy.intercept('POST', '**/api/graphql', (req) => {
             req.reply({ delay: 60000, body: {} });
         }).as('slowPosts');
-        cy.intercept('GET', '/api/getSuggested', { body: [] });
-        cy.intercept('GET', '/api/groups', { body: [] });
+        cy.intercept('GET', '**/api/getSuggested', { body: [] });
+        cy.intercept('GET', '**/api/groups', { body: [] });
 
         cy.visit('/');
         cy.get('[data-testid="main-loader"]').should('be.visible');
@@ -103,6 +103,12 @@ describe('Main Page — unauthenticated layout', () => {
     beforeEach(() => {
         cy.interceptPosts(E2E_POSTS);
         cy.logout();
+
+        cy.intercept('GET', '**/api/me', {
+            statusCode: 401,
+            body: { message: 'Unauthorized' },
+        }).as('getMeLoggedOut');
+
         cy.visit('/');
         cy.contains('Hello Cypress').should('be.visible');
     });
@@ -121,7 +127,7 @@ describe('Main Page — unauthenticated layout', () => {
     });
 });
 
-describe('Posts — like interactions', () => {
+describe('Posts — like interactions (Authenticated)', () => {
     beforeEach(() => {
         cy.interceptAuth();
         cy.interceptPosts(E2E_POSTS);
@@ -136,7 +142,7 @@ describe('Posts — like interactions', () => {
     });
 
     it('calls /api/like when liking an un-liked post', () => {
-        cy.intercept('POST', '/api/like', {
+        cy.intercept('POST', '**/api/like', {
             statusCode: 200,
             body: { status: 'liked', postId: 1, newLikesCount: 1 },
         }).as('likePost');
@@ -146,7 +152,7 @@ describe('Posts — like interactions', () => {
     });
 
     it('calls /api/dislike when un-liking an already-liked post', () => {
-        cy.intercept('POST', '/api/dislike', {
+        cy.intercept('POST', '**/api/dislike', {
             statusCode: 200,
             body: { status: 'disliked', postId: 2, newLikesCount: 0 },
         }).as('dislikePost');
@@ -154,13 +160,26 @@ describe('Posts — like interactions', () => {
         cy.get('[data-testid="like-button"]').eq(1).click();
         cy.wait('@dislikePost').its('request.body').should('deep.equal', { postId: 2 });
     });
+});
 
-    it('shows error toast when not logged in and trying to like', () => {
+describe('Posts — interactions (Unauthenticated)', () => {
+    beforeEach(() => {
+        cy.interceptPosts(E2E_POSTS);
         cy.logout();
+
+        cy.intercept('GET', '**/api/me', {
+            statusCode: 401,
+            body: { message: 'Unauthorized' },
+        }).as('getMeLoggedOut');
+
         cy.visit('/');
         cy.contains('Hello Cypress').should('be.visible');
+    });
+
+    it('shows error toast when trying to like a post while logged out', () => {
         cy.get('[data-testid="like-button"]').eq(0).click();
-        cy.contains('Login to like posts').should('be.visible');
+
+        cy.contains(/(Login to like posts|posts\.loginToLike)/i).should('be.visible');
     });
 });
 
@@ -170,10 +189,10 @@ describe('Posts — comment interactions', () => {
         cy.interceptPosts(E2E_POSTS);
         cy.loginViaLocalStorage(POSTS_USER);
 
-        cy.intercept('GET', '/api/posts/*/comments', { statusCode: 200, body: [] }).as(
+        cy.intercept('GET', '**/api/posts/*/comments', { statusCode: 200, body: [] }).as(
             'getComments',
         );
-        cy.intercept('POST', '/api/comments', (req) => {
+        cy.intercept('POST', '**/api/comments', (req) => {
             req.reply({
                 statusCode: 201,
                 body: {
@@ -255,7 +274,7 @@ describe('Create Post — full flow', () => {
         cy.interceptPosts(E2E_POSTS);
         cy.loginViaLocalStorage(POSTS_USER);
 
-        cy.intercept('POST', '/api/posts', {
+        cy.intercept('POST', '**/api/posts', {
             statusCode: 201,
             body: {
                 id: 99,

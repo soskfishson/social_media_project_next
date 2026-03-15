@@ -45,6 +45,10 @@ export default function PostFeed() {
 
             {error && <p className="status-message error">{error.message}</p>}
 
+            {posts.length === 0 && !isLoading && (
+                <p className="post-feed-empty">No posts to show yet</p>
+            )}
+
             {!isLoading &&
                 visiblePosts.map((post: PostType) => (
                     <div className="post-list-item" key={post.id}>
