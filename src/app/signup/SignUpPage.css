@@ -1,0 +1,31 @@
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-terms {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 8px;
+}
+
+.auth-terms-link {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+.auth-terms-link:hover {
+    color: var(--primary-main);
+}
+
+.auth-form-button-container {
+    margin-top: 8px;
+}
+
+@media (max-width: 720px) {
+    .auth-form-button-container {
+        height: 40px;
+    }
+}

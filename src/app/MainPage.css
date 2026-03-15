@@ -25,6 +25,16 @@
     max-width: 700px;
 }
 
+.main-page-section {
+    width: 100%;
+    min-width: 0;
+}
+
+.post-list-item {
+    width: 100%;
+    min-width: 0;
+}
+
 @media (max-width: 1240px) {
     .main-page {
         padding: 0;

@@ -80,6 +80,8 @@ const CreatePostForm = () => {
         <>
             <form className="create-post-form" onSubmit={handleSubmit}>
                 <Image
+                    width={64}
+                    height={64}
                     src={user!.profileImage || '/assets/default-avatar.png'}
                     alt="User Avatar"
                     className="cp-avatar"

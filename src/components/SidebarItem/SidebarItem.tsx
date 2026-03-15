@@ -21,6 +21,8 @@ const SidebarItem = ({ title, items }: SidebarItemProps) => {
                 {items.map((item) => (
                     <li key={item.id} className="sidebar-list-item">
                         <Image
+                            width={48}
+                            height={48}
                             src={item.pictureLink}
                             alt={item.title}
                             className="sidebar-item-image"
