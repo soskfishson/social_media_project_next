@@ -15,6 +15,7 @@ import {
     registerThunk,
     logout as logoutAction,
     getMeThunk,
+    setToken,
 } from '../../redux/AuthSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import Loader from '../../components/Loader/Loader';
@@ -32,7 +33,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
     useEffect(() => {
         const token = localStorage.getItem('accessToken');
+
         if (token) {
+            dispatch(setToken(token));
             dispatch(getMeThunk());
         }
     }, [dispatch]);

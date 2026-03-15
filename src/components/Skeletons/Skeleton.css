@@ -1,0 +1,109 @@
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--input-bg);
+    border-radius: 8px;
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: skeleton-shimmer 1.2s infinite;
+}
+
+.skeleton-line {
+    height: 12px;
+    border-radius: 6px;
+    margin: 6px 0;
+}
+.skeleton-line.short {
+    width: 40%;
+}
+.skeleton-line.medium {
+    width: 60%;
+}
+.skeleton-line.long {
+    width: 80%;
+}
+
+.skeleton-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.skeleton-rect {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 2;
+    border-radius: 12px;
+}
+
+.post-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--input-bg);
+    background: var(--bg-app);
+    width: 700px;
+}
+
+.post-skeleton-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-skeleton-meta {
+    flex: 1;
+}
+
+.post-skeleton-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-skeleton-footer {
+    display: flex;
+    gap: 16px;
+}
+
+.post-skeleton-chip {
+    width: 80px;
+    height: 18px;
+    border-radius: 999px;
+}
+
+.sidebar-skeleton-section {
+    margin-bottom: 20px;
+}
+
+.sidebar-skeleton-title {
+    width: 400px;
+    height: 18px;
+    margin: 8px 0 12px 0;
+    border-radius: 6px;
+}
+
+.sidebar-skeleton-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar-skeleton-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    gap: 12px;
+}

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import useAuth from '../../hooks/useAuth';
@@ -30,9 +31,9 @@ const HeaderControls = ({ variant }: HeaderControlsProps) => {
                     className="header-right-side-logged"
                     aria-label={t('a11y.userAvatar', { name: user.username })}
                 >
-                    <img
+                    <Image
                         className="header-avatar"
-                        src={user.profileImage}
+                        src={user.profileImage || '/assets/default-avatar.png'}
                         alt={t('a11y.userAvatar', { name: user.username })}
                     />
                     <span className="header-username" aria-hidden="true">
