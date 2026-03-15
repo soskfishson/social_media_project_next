@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Coverage
+
+![Statements](./coverage/badges/badge-statements.svg)
+![Branches](./coverage/badges/badge-branches.svg)
+![Functions](./coverage/badges/badge-functions.svg)
+![Lines](./coverage/badges/badge-lines.svg)
+
 ## Getting Started
 
 First, run the development server:
