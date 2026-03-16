@@ -28,7 +28,7 @@ const HeaderControls = ({ variant }: HeaderControlsProps) => {
             <div className="header-right-side header-right-side--logged-wrapper">
                 <LanguageSwitcher />
                 <Link
-                    href="/profile"
+                    href="/profile?tab=profile"
                     className="header-right-side-logged"
                     aria-label={t('a11y.userAvatar', { name: user.username })}
                 >

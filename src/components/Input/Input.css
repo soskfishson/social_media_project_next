@@ -232,3 +232,18 @@
     font-size: 16px;
     color: var(--text-secondary);
 }
+
+@media (max-width: 720px) {
+    .file-upload-text-area {
+        gap: 8px;
+    }
+    .file-upload-text {
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .file-upload-hint {
+        font-size: 12px;
+    }
+}

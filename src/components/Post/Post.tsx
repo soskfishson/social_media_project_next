@@ -13,12 +13,12 @@ import {
     Typography,
     Button as MUIButton,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Input from '../Input/Input';
 import { InputType, ValidationState, ButtonType } from '@/interfaces/interfaces';
 import { styled } from '@mui/material/styles';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import CommentIcon from '@mui/icons-material/Comment';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { type Post as PostType, ToastType } from '@/interfaces/interfaces';
@@ -33,8 +33,8 @@ import CommentItem from '../CommentItem/CommentItem';
 import { getAssetUrl } from '@/utils/getAssetUrl';
 import Button from '../Button/Button';
 import PencilIcon from '@/assets/PencilIcon.svg';
-
-const StyledCard = styled(Card)(() => ({
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+const StyledCard = styled(Card)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
@@ -47,6 +47,11 @@ const StyledCard = styled(Card)(() => ({
     backgroundImage: 'none',
     '& + &': {
         borderTop: 'none',
+    },
+    [theme.breakpoints.down(720)]: {
+        padding: '12px',
+        border: 'none',
+        borderBottom: '1px solid var(--surface-3)',
     },
 }));
 
@@ -128,6 +133,7 @@ interface PostProps {
 }
 
 export const PostComponent = ({ post }: PostProps) => {
+    const theme = useTheme();
     const [formState, dispatch] = useReducer(commentReducer, { text: '', isSubmitting: false });
     const [commentsShown, setCommentsShown] = useState(false);
     const [likeAnimating, setLikeAnimating] = useState(false);
@@ -283,7 +289,7 @@ export const PostComponent = ({ post }: PostProps) => {
                     aria-label={t('a11y.toggleComments')}
                     className={commentAnimating ? 'comment-btn-active' : ''}
                 >
-                    <CommentIcon />
+                    <ChatBubbleOutlineIcon />
                     <span>
                         {isLoggedIn
                             ? t('posts.comments', { count: comments.length })
@@ -342,17 +348,21 @@ export const PostComponent = ({ post }: PostProps) => {
                                     }
                                     disabled={formState.isSubmitting}
                                     maxLength={1000}
+                                    showMaxLength={false}
                                     validationState={ValidationState.IDLE}
                                 />
                                 <Box
                                     sx={{
                                         display: 'flex',
-                                        width: '30%',
+                                        maxWidth: '211px',
+                                        [theme.breakpoints.down(720)]: {
+                                            maxWidth: '165px',
+                                        },
                                     }}
                                 >
                                     <Button
                                         type={ButtonType.SUBMIT}
-                                        disabled={formState.isSubmitting || !formState.text.trim()}
+                                        disabled={formState.isSubmitting}
                                         data-testid="comment-submit"
                                     >
                                         {formState.isSubmitting

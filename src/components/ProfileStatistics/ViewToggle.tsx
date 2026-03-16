@@ -11,7 +11,7 @@ const ViewToggle = ({ isChartView, onChange }: ViewToggleProps) => {
     const { t } = useTranslation();
     return (
         <div className="view-toggle-container" data-testid="view-toggle">
-            {!isChartView && (
+            {isChartView && (
                 <span
                     className={`view-toggle-label ${!isChartView ? 'active' : ''}`}
                     data-testid="table-label"

@@ -63,7 +63,7 @@ const en = {
         likes: '{{count}} likes',
         comments: '{{count}} comments',
         loginToLike: 'Login to like posts',
-        loginToView: 'Login to view',
+        loginToView: 'You have to login to see the comments',
         failedLike: 'Failed to like post',
         failedDislike: 'Failed to dislike post',
         postComment: 'Post Comment',
@@ -93,7 +93,7 @@ const en = {
         usernameMin: 'Username must be at least 3 characters',
         emailInvalid: 'Invalid email format',
         bioMax: 'Bio cannot exceed 200 characters',
-        maxTexts: 'Max {{count}} texts',
+        maxTexts: 'Max {{count}} chars',
     },
 
     sidebar: {

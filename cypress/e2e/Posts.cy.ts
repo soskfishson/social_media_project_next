@@ -94,8 +94,8 @@ describe('Main Page — authenticated layout', () => {
         cy.contains('Test User').should('be.visible');
     });
 
-    it('header profile link points to /profile', () => {
-        cy.get('.header-right-side-logged').should('have.attr', 'href', '/profile');
+    it('header profile link points to /profile?tab=profile', () => {
+        cy.get('.header-right-side-logged').should('have.attr', 'href', '/profile?tab=profile');
     });
 });
 

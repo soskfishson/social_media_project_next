@@ -1,4 +1,46 @@
 .comment-item {
-    font-size: 0.9rem;
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    justify-content: space-between;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-delete-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    border-radius: 4px;
+    opacity: 1;
+    transition:
+        opacity 0.15s ease,
+        color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.comment-delete-btn:hover {
+    color: var(--negative-main);
+    background-color: rgba(255, 85, 74, 0.08);
+}
+
+.comment-delete-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.comment-delete-btn svg {
+    width: 16px;
+    height: 16px;
 }

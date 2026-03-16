@@ -24,6 +24,7 @@ const Input = ({
     successMessage,
     icon,
     maxLength,
+    showMaxLength = true,
     disabled = false,
     backgroundColor = 'var(--input-bg)',
     showPasswordToggle = true,
@@ -216,7 +217,7 @@ const Input = ({
                 </div>
             )}
 
-            {type === InputType.TEXTAREA && maxLength && (
+            {type === InputType.TEXTAREA && maxLength && showMaxLength && (
                 <div className={`input-char-count ${isOverLimit ? 'input-char-count-error' : ''}`}>
                     <span className="input-char-count-icon">
                         <InfoIcon />

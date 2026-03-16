@@ -114,18 +114,18 @@ describe('Authentication — Sign Up', () => {
 });
 
 describe('Authentication — Logout & Protected Routes', () => {
-    it('redirects unauthenticated user from /profile to /signin', () => {
+    it('redirects unauthenticated user from /profile?tab=profile to /signin', () => {
         cy.logout();
-        cy.visit('/profile');
+        cy.visit('/profile?tab=profile');
         cy.url().should('include', '/signin');
     });
 
-    it('allows authenticated user to visit /profile', () => {
+    it('allows authenticated user to visit /profile?tab=profile', () => {
         cy.interceptAuth();
         cy.interceptProfile();
         cy.loginViaLocalStorage();
-        cy.visit('/profile');
-        cy.url().should('include', '/profile');
+        cy.visit('/profile?tab=profile');
+        cy.url().should('include', '/profile?tab=profile');
         cy.contains('Edit profile').should('be.visible');
     });
 
@@ -134,7 +134,7 @@ describe('Authentication — Logout & Protected Routes', () => {
         cy.interceptPosts();
         cy.interceptProfile();
         cy.loginViaLocalStorage();
-        cy.visit('/profile');
+        cy.visit('/profile?tab=profile');
 
         cy.get('[data-testid="logout-button"]').click();
 

@@ -10,6 +10,7 @@ import Button from '../Button/Button';
 import { ButtonType } from '@/interfaces/interfaces';
 import './BurgerMenu.css';
 import { getAssetUrl } from '@/utils/getAssetUrl';
+import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 
 const BurgerMenu = () => {
     const { isLoggedIn, user } = useAuth();
@@ -71,14 +72,17 @@ const BurgerMenu = () => {
                         </div>
                         <ul className="burger-menu-list" role="list">
                             <li>
-                                <Link href="/profile" onClick={closeMenu}>
+                                <Link href="/profile?tab=profile" onClick={closeMenu}>
                                     {t('nav.profileInfo')}
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/statistics" onClick={closeMenu}>
+                                <Link href="/profile?tab=statistics" onClick={closeMenu}>
                                     {t('nav.statistics')}
                                 </Link>
+                            </li>
+                            <li className="language-field">
+                                <LanguageSwitcher />
                             </li>
                         </ul>
                     </>
@@ -101,6 +105,9 @@ const BurgerMenu = () => {
                             >
                                 {t('nav.signIn')}
                             </Link>
+                        </li>
+                        <li className="language-field">
+                            <LanguageSwitcher />
                         </li>
                     </ul>
                 )}

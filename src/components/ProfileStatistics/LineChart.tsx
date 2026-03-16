@@ -1,3 +1,7 @@
+'use client';
+
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+
 export interface ChartDataPoint {
     label: string;
     value: number;
@@ -8,13 +12,15 @@ interface LineChartProps {
     title: string;
 }
 
-const W = 460;
-const H = 330;
-const PAD = { top: 24, right: 16, bottom: 40, left: 44 };
-const INNER_W = W - PAD.left - PAD.right;
-const INNER_H = H - PAD.top - PAD.bottom;
-
 const LineChart = ({ data, title }: LineChartProps) => {
+    const isMobile = useMediaQuery('(max-width: 720px)');
+
+    const W = isMobile ? 330 : 460;
+    const H = isMobile ? 460 : 330;
+    const PAD = { top: 24, right: 16, bottom: 40, left: 44 };
+    const INNER_W = W - PAD.left - PAD.right;
+    const INNER_H = H - PAD.top - PAD.bottom;
+
     if (data.length === 0) {
         return (
             <div className="chart-wrapper">

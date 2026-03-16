@@ -1,6 +1,6 @@
 'use client';
 
-import { type SyntheticEvent, useReducer } from 'react';
+import { type SyntheticEvent, useReducer, useEffect } from 'react';
 import Input from '../Input/Input';
 import { ButtonType, InputType, ToastType } from '@/interfaces/interfaces';
 import { useCreatePostMutation, uploadImage } from '@/hooks/usePostsQuery';
@@ -72,6 +72,15 @@ const CreatePostModal = ({ title: initialTitle, isOpen, onClose }: CreatePostMod
     const { addToast } = useToast();
     const createPostMutation = useCreatePostMutation();
     const { t } = useTranslation();
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
 
     const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();

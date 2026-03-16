@@ -4,6 +4,7 @@
     flex-direction: column;
     background-color: var(--surface-1);
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
 .auth-main {

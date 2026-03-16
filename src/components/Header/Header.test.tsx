@@ -67,7 +67,7 @@ describe('Header — authenticated default variant', () => {
         renderWithProviders(<Header />, { authValue: { isLoggedIn: true, user: mockUser } });
         expect(document.querySelector('.header-right-side-logged')).toHaveAttribute(
             'href',
-            '/profile',
+            '/profile?tab=profile',
         );
     });
 
