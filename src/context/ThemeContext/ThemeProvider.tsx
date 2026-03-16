@@ -11,7 +11,9 @@ interface ThemeProviderProps {
 }
 
 const subscribe = (callback: () => void) => {
-    if (typeof window === 'undefined') return () => {};
+    if (typeof window === 'undefined') {
+        return () => {};
+    }
 
     window.addEventListener('storage', callback);
     window.addEventListener('local-theme-change', callback);

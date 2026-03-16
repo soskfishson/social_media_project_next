@@ -1,4 +1,4 @@
-import { renderWithProviders, screen } from '../tests/test-utils';
+import { renderWithProviders, screen } from '@/tests/test-utils';
 import NotFoundPage from './not-found';
 
 describe('NotFoundPage', () => {

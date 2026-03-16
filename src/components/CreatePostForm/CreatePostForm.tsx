@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useReducer, useState, type ChangeEvent, type SyntheticEvent } from 'react';
 import Button from '../Button/Button';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '@/hooks/useAuth';
 import './CreatePostForm.css';
 import CreatePostModal from '../CreatePostModal/CreatePostModal';
 import { ButtonType } from '@/interfaces/interfaces';

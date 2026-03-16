@@ -48,7 +48,7 @@
 
 .toast-close {
     position: absolute;
-    top: 24px;
+    top: calc(50% - 8px);
     right: 24px;
     background: none;
     border: none;

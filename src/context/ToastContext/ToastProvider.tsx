@@ -3,7 +3,7 @@
 import { useState, useCallback, type ReactNode } from 'react';
 import { type IToast, ToastType } from '@/interfaces/interfaces';
 import ToastContext from './ToastContext';
-import ToastContainer from '../../components/Toast/ToastContainer';
+import ToastContainer from '@/components/Toast/ToastContainer';
 
 interface ToastProviderProps {
     children: ReactNode;

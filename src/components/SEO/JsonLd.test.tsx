@@ -3,7 +3,9 @@ import { WebsiteJsonLd } from './JsonLd';
 
 function getSchema(container: HTMLElement): Record<string, unknown> {
     const script = container.querySelector('script[type="application/ld+json"]');
-    if (!script) throw new Error('No JSON-LD script found');
+    if (!script) {
+        throw new Error('No JSON-LD script found');
+    }
     return JSON.parse(script.textContent || '{}') as Record<string, unknown>;
 }
 

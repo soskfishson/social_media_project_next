@@ -18,7 +18,9 @@ export default function PostFeed() {
 
     useEffect(() => {
         const sentinel = sentinelRef.current;
-        if (!sentinel) return;
+        if (!sentinel) {
+            return;
+        }
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -49,12 +51,7 @@ export default function PostFeed() {
                 <p className="post-feed-empty">No posts to show yet</p>
             )}
 
-            {!isLoading &&
-                visiblePosts.map((post: PostType) => (
-                    <div className="post-list-item" key={post.id}>
-                        <Post post={post} />
-                    </div>
-                ))}
+            {!isLoading && visiblePosts.map((post: PostType) => <Post post={post} key={post.id} />)}
 
             {!isLoading && (
                 <div ref={sentinelRef} className="scroll-sentinel">

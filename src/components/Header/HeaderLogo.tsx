@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import Logo from '../../assets/logo.svg';
-import LogoLight from '../../assets/logoLight.svg';
-import useTheme from '../../hooks/useTheme';
+import Logo from '@/assets/logo.svg';
+import LogoLight from '@/assets/logoLight.svg';
+import useTheme from '@/hooks/useTheme';
 import { useTranslation } from 'react-i18next';
 import { ThemeTypes } from '@/interfaces/interfaces';
 

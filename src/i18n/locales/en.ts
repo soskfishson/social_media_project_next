@@ -63,7 +63,7 @@ const en = {
         likes: '{{count}} likes',
         comments: '{{count}} comments',
         loginToLike: 'Login to like posts',
-        loginToView: 'Login to view',
+        loginToView: 'You have to login to see the comments',
         failedLike: 'Failed to like post',
         failedDislike: 'Failed to dislike post',
         postComment: 'Post Comment',
@@ -93,7 +93,7 @@ const en = {
         usernameMin: 'Username must be at least 3 characters',
         emailInvalid: 'Invalid email format',
         bioMax: 'Bio cannot exceed 200 characters',
-        maxTexts: 'Max {{count}} texts',
+        maxTexts: 'Max {{count}} chars',
     },
 
     sidebar: {
@@ -138,6 +138,28 @@ const en = {
         postImage: 'Post image',
         logoHome: 'Sidekick - Go to home page',
         selectLanguage: 'Select language',
+    },
+
+    stats: {
+        totalLikes: 'Total likes given',
+        totalComments: 'Total comments',
+        totalPosts: 'Total posts',
+        monthOverMonth: '{{change}}% month over month',
+        likes: 'Likes',
+        comments: 'Comments',
+        likesChartTitle: 'Likes per day (last 8 days)',
+        commentsChartTitle: 'Comments per month',
+        tableView: 'Table view',
+        chartView: 'Chart view',
+        toggleChartView: 'Toggle chart view',
+        noLikesYet: 'No likes yet',
+        noCommentsYet: 'No comments yet',
+        sampleData: 'Sample data — no activity yet',
+        colPost: 'Post',
+        colPostId: 'Post ID',
+        colDay: 'Day',
+        colDate: 'Date',
+        colComment: 'Comment',
     },
 
     time: {

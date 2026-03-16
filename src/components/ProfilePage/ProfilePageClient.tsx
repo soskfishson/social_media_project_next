@@ -1,26 +1,34 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useRouter, useSearchParams } from 'next/navigation';
 import TabSwitch from '@/components/TabSwitch/TabSwitch';
 import ProfileInfo from '@/components/ProfileInfo/ProfileInfo';
+import ProfileStatisticsClient from '@/components/ProfileStatistics/ProfileStatisticsClient';
 
 const ProfilePageClient = () => {
-    const [currentTab, setCurrentTab] = useState('profile');
     const { t } = useTranslation();
+    const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const currentTab = searchParams.get('tab') || 'profile';
 
     const tabs = [
         { id: 'profile', label: t('profile.profileInfo') },
         { id: 'statistics', label: t('profile.statistics') },
     ];
 
+    const handleTabChange = (tab: string) => {
+        router.replace(`?tab=${tab}`, { scroll: false });
+    };
+
     return (
         <>
-            <TabSwitch tabs={tabs} defaultTab="profile" onTabChange={setCurrentTab} />
+            <TabSwitch tabs={tabs} defaultTab={currentTab} onTabChange={handleTabChange} />
 
             {currentTab === 'profile' && <ProfileInfo />}
 
-            {currentTab === 'statistics' && <div>{t('profile.statistics')}</div>}
+            {currentTab === 'statistics' && <ProfileStatisticsClient />}
         </>
     );
 };

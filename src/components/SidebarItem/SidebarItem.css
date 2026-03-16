@@ -34,10 +34,6 @@
     cursor: pointer;
 }
 
-.sidebar-list-item:hover {
-    background-color: var(--surface-2);
-}
-
 .sidebar-item-image {
     width: 48px;
     height: 48px;

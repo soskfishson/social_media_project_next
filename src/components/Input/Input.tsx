@@ -3,12 +3,12 @@
 import { type ChangeEvent, useState, useId } from 'react';
 import { ButtonType, type InputProps, InputType, ValidationState } from '@/interfaces/interfaces';
 import { useTranslation } from 'react-i18next';
-import InfoIcon from '../../assets/InfoIcon.svg';
-import InfoIconError from '../../assets/InfoIconError.svg';
-import ShowPassword from '../../assets/ShowPassword.svg';
-import HidePassword from '../../assets/HidePassword.svg';
-import SuccessIcon from '../../assets/Success.svg';
-import FileIcon from '../../assets/File.svg';
+import InfoIcon from '@/assets/InfoIcon.svg';
+import InfoIconError from '@/assets/InfoIconError.svg';
+import ShowPassword from '@/assets/ShowPassword.svg';
+import HidePassword from '@/assets/HidePassword.svg';
+import SuccessIcon from '@/assets/Success.svg';
+import FileIcon from '@/assets/File.svg';
 import './Input.css';
 import Button from '../Button/Button';
 
@@ -24,6 +24,7 @@ const Input = ({
     successMessage,
     icon,
     maxLength,
+    showMaxLength = true,
     disabled = false,
     backgroundColor = 'var(--input-bg)',
     showPasswordToggle = true,
@@ -53,13 +54,19 @@ const Input = ({
         if (type === InputType.PASSWORD && showPasswordToggle) {
             return showPassword ? 'text' : 'password';
         }
-        if (type === InputType.TEXTAREA || type === InputType.FILE) return undefined;
+        if (type === InputType.TEXTAREA || type === InputType.FILE) {
+            return undefined;
+        }
         return type;
     };
 
     const getStateStyle = () => {
-        if (validationState === ValidationState.VALID) return 'input-valid';
-        if (validationState === ValidationState.INVALID) return 'input-invalid';
+        if (validationState === ValidationState.VALID) {
+            return 'input-valid';
+        }
+        if (validationState === ValidationState.INVALID) {
+            return 'input-invalid';
+        }
         return '';
     };
 
@@ -210,7 +217,7 @@ const Input = ({
                 </div>
             )}
 
-            {type === InputType.TEXTAREA && maxLength && (
+            {type === InputType.TEXTAREA && maxLength && showMaxLength && (
                 <div className={`input-char-count ${isOverLimit ? 'input-char-count-error' : ''}`}>
                     <span className="input-char-count-icon">
                         <InfoIcon />

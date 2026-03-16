@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Button from './Button';
-import { ButtonType } from '../../interfaces/interfaces';
+import { ButtonType } from '@/interfaces/interfaces';
 
 describe('Button — rendering', () => {
     it('renders provided label text', () => {

@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import Input from './Input';
-import { InputType, ValidationState } from '../../interfaces/interfaces';
-import { testI18n } from '../../tests/test-utils';
+import { InputType, ValidationState } from '@/interfaces/interfaces';
+import { testI18n } from '@/tests/test-utils';
 
 const noop = () => {};
 

@@ -1,6 +1,6 @@
-import { renderWithProviders, screen } from '../../tests/test-utils';
+import { renderWithProviders, screen } from '@/tests/test-utils';
 import Header from './Header';
-import type { User } from '../../interfaces/interfaces';
+import type { User } from '@/interfaces/interfaces';
 
 const mockUser: User = {
     id: 1,
@@ -67,7 +67,7 @@ describe('Header — authenticated default variant', () => {
         renderWithProviders(<Header />, { authValue: { isLoggedIn: true, user: mockUser } });
         expect(document.querySelector('.header-right-side-logged')).toHaveAttribute(
             'href',
-            '/profile',
+            '/profile?tab=profile',
         );
     });
 

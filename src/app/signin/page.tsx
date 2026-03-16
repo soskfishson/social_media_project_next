@@ -5,13 +5,13 @@ import { useForm, Controller, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
-import AuthLayout from '../../components/AuthLayout/AuthLayout';
-import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
-import EmailIcon from '../../assets/Email.svg';
-import PasswordIcon from '../../assets/Eye.svg';
-import useToast from '../../hooks/useToast';
-import useAuth from '../../hooks/useAuth';
+import AuthLayout from '@/components/AuthLayout/AuthLayout';
+import Input from '@/components/Input/Input';
+import Button from '@/components/Button/Button';
+import EmailIcon from '@/assets/Email.svg';
+import PasswordIcon from '@/assets/Eye.svg';
+import useToast from '@/hooks/useToast';
+import useAuth from '@/hooks/useAuth';
 import { ButtonType, InputType, ToastType, ValidationState } from '@/interfaces/interfaces';
 import { useTranslation } from 'react-i18next';
 import './SignInPage.css';
@@ -54,9 +54,15 @@ const SignInPage = () => {
         isTouched: boolean,
         value: string,
     ): ValidationState => {
-        if (!isTouched && !value) return ValidationState.IDLE;
-        if (error) return ValidationState.INVALID;
-        if (!error && value) return ValidationState.VALID;
+        if (!isTouched && !value) {
+            return ValidationState.IDLE;
+        }
+        if (error) {
+            return ValidationState.INVALID;
+        }
+        if (!error && value) {
+            return ValidationState.VALID;
+        }
         return ValidationState.IDLE;
     };
 

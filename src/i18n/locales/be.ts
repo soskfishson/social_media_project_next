@@ -140,6 +140,28 @@ const be = {
         selectLanguage: 'Выбраць мову',
     },
 
+    stats: {
+        totalLikes: 'Усяго лайкаў пастаўлена',
+        totalComments: 'Усяго каментарыяў',
+        totalPosts: 'Усяго пастоў',
+        monthOverMonth: '{{change}}% за месяц',
+        likes: 'Лайкі',
+        comments: 'Каментарыі',
+        likesChartTitle: 'Лайкі за дзень (апошнія 8 дзён)',
+        commentsChartTitle: 'Каментарыі па месяцах',
+        tableView: 'Табліца',
+        chartView: 'Графік',
+        toggleChartView: 'Пераключыць на графік',
+        noLikesYet: 'Пакуль няма лайкаў',
+        noCommentsYet: 'Пакуль няма каментарыяў',
+        sampleData: 'Прыкладныя даныя — актыўнасці няма',
+        colPost: 'Пост',
+        colPostId: 'ID паста',
+        colDay: 'Дзень',
+        colDate: 'Дата',
+        colComment: 'Каментар',
+    },
+
     time: {
         justNow: 'Толькі што',
         minAgo: '{{count}} хв. таму',

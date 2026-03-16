@@ -67,10 +67,10 @@ describe('Header — authenticated', () => {
         cy.get('[data-testid="signup-link"]').should('not.exist');
     });
 
-    it('profile link navigates to /profile', () => {
+    it('profile link navigates to /profile?tab=profile', () => {
         cy.interceptProfile();
         cy.get('.header-right-side-logged').click();
-        cy.url().should('include', '/profile');
+        cy.url().should('include', '/profile?tab=profile');
     });
 });
 
@@ -160,10 +160,10 @@ describe('Burger Menu — authenticated links', () => {
         cy.get('[data-testid="burger-signup-link"]').should('not.exist');
     });
 
-    it('clicking Profile info navigates to /profile', () => {
+    it('clicking Profile info navigates to /profile?tab=profile', () => {
         cy.interceptProfile();
         cy.contains('Profile info').click();
-        cy.url().should('include', '/profile');
+        cy.url().should('include', '/profile?tab=profile');
     });
 
     it('renders user avatar in the burger menu', () => {
@@ -203,7 +203,7 @@ describe('Full user navigation journey', () => {
 
         cy.visit('/');
         cy.get('.header-right-side-logged').click();
-        cy.url().should('include', '/profile');
+        cy.url().should('include', '/profile?tab=profile');
         cy.contains('Edit profile').should('be.visible');
 
         cy.get('.header-logo-container').click();

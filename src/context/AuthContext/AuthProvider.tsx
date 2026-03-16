@@ -9,16 +9,16 @@ import {
     ToastType,
 } from '@/interfaces/interfaces';
 import AuthContext from './AuthContext';
-import useToast from '../../hooks/useToast';
+import useToast from '@/hooks/useToast';
 import {
     loginThunk,
     registerThunk,
     logout as logoutAction,
     getMeThunk,
     setToken,
-} from '../../redux/AuthSlice';
+} from '@/redux/AuthSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import Loader from '../../components/Loader/Loader';
+import Loader from '@/components/Loader/Loader';
 
 interface AuthProviderProps {
     children: ReactNode;

@@ -1,6 +1,6 @@
-import { renderWithProviders, screen, fireEvent } from '../../tests/test-utils';
+import { renderWithProviders, screen, fireEvent } from '@/tests/test-utils';
 import CreatePostForm from './CreatePostForm';
-import type { User } from '../../interfaces/interfaces';
+import type { User } from '@/interfaces/interfaces';
 
 const mockUser: User = {
     id: 1,

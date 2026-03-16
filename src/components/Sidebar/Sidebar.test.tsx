@@ -1,4 +1,4 @@
-import { renderWithProviders, screen, waitFor } from '../../tests/test-utils';
+import { renderWithProviders, screen, waitFor } from '@/tests/test-utils';
 import Sidebar from './Sidebar';
 
 const renderLoggedIn = () => renderWithProviders(<Sidebar />, { authValue: { isLoggedIn: true } });

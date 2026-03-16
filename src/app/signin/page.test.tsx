@@ -1,7 +1,7 @@
-import { renderWithProviders, screen, fireEvent, waitFor } from '../../tests/test-utils';
+import { renderWithProviders, screen, fireEvent, waitFor } from '@/tests/test-utils';
 import { useRouter } from 'next/navigation';
 import SignInPage from './page';
-import { ToastType } from '../../interfaces/interfaces';
+import { ToastType } from '@/interfaces/interfaces';
 
 const mockPush = jest.fn();
 
