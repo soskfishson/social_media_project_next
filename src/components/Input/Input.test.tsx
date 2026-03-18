@@ -256,11 +256,12 @@ describe('Input — textarea type', () => {
                 label=""
                 placeholder=""
                 value="hi"
+                showMaxLength={true}
                 onChange={noop}
                 maxLength={100}
             />,
         );
-        expect(screen.getByText(/Max 100 texts/i)).toBeInTheDocument();
+        expect(screen.getByText(/Max 100 chars/i)).toBeInTheDocument();
     });
 
     it('applies error class on char count when over limit', () => {
@@ -273,9 +274,10 @@ describe('Input — textarea type', () => {
                 value={longText}
                 onChange={noop}
                 maxLength={10}
+                showMaxLength={true}
             />,
         );
-        const charCount = screen.getByText(/Max 10 texts/i).closest('.input-char-count');
+        const charCount = screen.getByText(/Max 10 chars/i).closest('.input-char-count');
         expect(charCount).toHaveClass('input-char-count-error');
     });
 
@@ -288,9 +290,10 @@ describe('Input — textarea type', () => {
                 value="hi"
                 onChange={noop}
                 maxLength={100}
+                showMaxLength={true}
             />,
         );
-        const charCount = screen.getByText(/Max 100 texts/i).closest('.input-char-count');
+        const charCount = screen.getByText(/Max 100 chars/i).closest('.input-char-count');
         expect(charCount).not.toHaveClass('input-char-count-error');
     });
 });

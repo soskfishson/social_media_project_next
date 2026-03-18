@@ -155,4 +155,5 @@ export interface InputProps {
     showPasswordToggle?: boolean;
     accept?: string;
     onFileChange?: (value: File) => void;
+    'data-testid'?: string;
 }

@@ -24,7 +24,7 @@ describe('CreatePostForm — rendering', () => {
 
     it('renders user avatar', () => {
         renderForm();
-        expect(screen.getByAltText('User Avatar')).toHaveAttribute('src', 'avatar.jpg');
+        expect(screen.getByAltText('User Avatar')).toHaveAttribute('src', '/avatar.jpg');
     });
 
     it('renders the submit button', () => {

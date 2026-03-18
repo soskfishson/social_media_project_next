@@ -60,7 +60,7 @@ describe('Header — authenticated default variant', () => {
         renderWithProviders(<Header />, { authValue: { isLoggedIn: true, user: mockUser } });
         const avatars = screen.getAllByAltText(/johndoe's profile/i);
         const headerAvatar = avatars.find((el) => el.classList.contains('header-avatar'));
-        expect(headerAvatar).toHaveAttribute('src', 'avatar.png');
+        expect(headerAvatar).toHaveAttribute('src', '/avatar.png');
     });
 
     it('profile link points to /profile', () => {
