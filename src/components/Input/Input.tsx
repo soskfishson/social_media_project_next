@@ -30,6 +30,7 @@ const Input = ({
     showPasswordToggle = true,
     accept,
     onFileChange,
+    'data-testid': dataTestId,
 }: InputProps) => {
     const [showPassword, setShowPassword] = useState(false);
     const [fileName, setFileName] = useState<string>('');
@@ -134,7 +135,7 @@ const Input = ({
     }
 
     return (
-        <div className="input-wrapper">
+        <div className="input-wrapper" data-testid={dataTestId}>
             <label className="input-label" htmlFor={inputId}>
                 <span className="input-label-container">
                     <span className="input-label-icon">{icon}</span>

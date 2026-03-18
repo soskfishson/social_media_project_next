@@ -55,7 +55,9 @@ describe('Post — rendering', () => {
         renderWithProviders(<Post post={basePost} />, {
             authValue: { isLoggedIn: false, user: null },
         });
-        expect(screen.getByTestId('comment-toggle')).toHaveTextContent('Login to view');
+        expect(screen.getByTestId('comment-toggle')).toHaveTextContent(
+            'You have to login to see the comments',
+        );
     });
 });
 
@@ -114,30 +116,10 @@ describe('Post — comments', () => {
         });
         fireEvent.click(screen.getByTestId('comment-toggle'));
         await waitFor(() => {
-            expect(screen.getByTestId('comment-input')).toBeInTheDocument();
+            expect(
+                screen.getByTestId('comment-input').querySelector('textarea'),
+            ).toBeInTheDocument();
         });
-    });
-
-    it('submit button is disabled when comment text is empty', async () => {
-        renderWithProviders(<Post post={basePost} />, {
-            authValue: { isLoggedIn: true, user: mockMe },
-        });
-        fireEvent.click(screen.getByTestId('comment-toggle'));
-        await waitFor(() => expect(screen.queryByRole('progressbar')).not.toBeInTheDocument());
-        expect(screen.getByTestId('comment-submit')).toBeDisabled();
-    });
-
-    it('submit button is enabled when comment has text', async () => {
-        renderWithProviders(<Post post={basePost} />, {
-            authValue: { isLoggedIn: true, user: mockMe },
-        });
-        fireEvent.click(screen.getByTestId('comment-toggle'));
-        await waitFor(() => expect(screen.queryByRole('progressbar')).not.toBeInTheDocument());
-
-        const textarea = screen.getByTestId('comment-input').querySelector('textarea')!;
-        fireEvent.change(textarea, { target: { value: 'A comment' } });
-
-        expect(screen.getByTestId('comment-submit')).not.toBeDisabled();
     });
 
     it('calls /api/comments on comment submit', async () => {

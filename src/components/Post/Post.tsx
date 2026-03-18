@@ -339,6 +339,7 @@ export const PostComponent = ({ post }: PostProps) => {
                                     icon={<PencilIcon />}
                                     type={InputType.TEXTAREA}
                                     placeholder={t('posts.writeComment')}
+                                    data-testid="comment-input"
                                     value={formState.text}
                                     onChange={(val) =>
                                         dispatch({

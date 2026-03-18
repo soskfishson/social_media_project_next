@@ -1,0 +1,52 @@
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    image: social_media_project_next:dev
+    container_name: social_media_app_dev
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./next.config.ts:/app/next.config.ts
+      - ./tsconfig.json:/app/tsconfig.json
+      - /app/node_modules
+
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+      - NEXT_PUBLIC_BASE_PATH=/social_media_project_next
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  app-prod:
+    build:
+      context: .
+      target: runner
+    image: social_media_project_next:prod
+    container_name: social_media_app_prod
+    profiles:
+      - prod
+
+    ports:
+      - "8080:80"
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/social_media_project_next/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
